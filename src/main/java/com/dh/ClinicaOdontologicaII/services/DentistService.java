@@ -18,7 +18,7 @@ public class DentistService {
         this.repository = repository;
     }
 
-    public Dentist save(Dentist dentist) {
+    public  Dentist save(Dentist dentist) {
         return repository.save(dentist);
 
     }

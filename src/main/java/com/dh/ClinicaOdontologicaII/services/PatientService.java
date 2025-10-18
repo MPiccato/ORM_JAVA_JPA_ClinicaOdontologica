@@ -5,6 +5,7 @@ import com.dh.ClinicaOdontologicaII.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,7 +30,7 @@ public class PatientService {
         repository.deleteById(id);
     }
 
-    public void findAll(){
-        repository.findAll();
+    public List<Patient> findAll(){
+        return repository.findAll();
     }
 }
