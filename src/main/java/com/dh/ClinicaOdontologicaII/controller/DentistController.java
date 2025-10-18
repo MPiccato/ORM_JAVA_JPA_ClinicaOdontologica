@@ -45,4 +45,18 @@ public class DentistController {
 
         //return dentistWanted.get() //Necesito usar el get porque es un optional
    }
+
+   @PutMapping
+    public Dentist update(@RequestBody Dentist dentist) {
+        Optional<Dentist> optionalDentist = dentistService.findById(dentist.getId());
+
+        if (optionalDentist.isPresent()) {
+            dentistService.update(dentist);
+            return dentist;
+        } else {
+            return dentist;
+        }
+
+
+   }
 }
