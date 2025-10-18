@@ -13,16 +13,16 @@ public class Patient {
     @Column(name="patient_id")
     private Integer id;
 
-    @Column(name="name")
+    @Column(name="name", nullable = false)
     private String name;
 
-    @Column(name="last_name")
+    @Column(name="last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "card_identity")
+    @Column(name = "card_identity", nullable = false)
     private String cardIdentity;
 
-    @Column(name="admission_of_date")
+    @Column(name="admission_of_date", nullable = false)
     private LocalDate admissionOfDate;
 
     //Constructor por defecto vacío

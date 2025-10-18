@@ -13,13 +13,13 @@ public class Dentist {
     @Column(name = "dentist_id")
     private Integer id;
 
-    @Column(name = "registration")
+    @Column(name = "registration", nullable = false)
     private Integer registration;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "latName")
+    @Column(name = "latName", nullable = false)
     private String lastName;
 
     //Constructor por defecto vacío
