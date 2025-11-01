@@ -21,16 +21,19 @@ public class DentistController {
         this.dentistService = dentistService;
     }
 
-   @PostMapping
+    //Crear un dentista
+   @PostMapping("/save")
     public Dentist save(@RequestBody Dentist dentist) {
         return dentistService.save(dentist);
    }
 
+   //Listar los dentistas
    @GetMapping("/all")
     public List<Dentist> getAll() {
         return dentistService.findAll();
    }
 
+   //Busca por id un dentista
    @GetMapping("/id/{id}")
     public ResponseEntity<Dentist> findById(@PathVariable Integer id) {
         Optional<Dentist> dentistWanted = dentistService.findById(id);
@@ -46,7 +49,8 @@ public class DentistController {
         //return dentistWanted.get() //Necesito usar el get porque es un optional
    }
 
-   @PutMapping
+   //Actualizar un dentista
+   @PutMapping("/update")
     public Dentist update(@RequestBody Dentist dentist) {
         Optional<Dentist> optionalDentist = dentistService.findById(dentist.getId());
 
@@ -57,6 +61,19 @@ public class DentistController {
             return dentist;
         }
 
+
+   }
+
+   //Con deleteMapping estamos eliminando un odontólogo de la base de datos
+   @DeleteMapping("delete/{id}")
+    public String delete(@PathVariable Integer id) {
+        Optional<Dentist> optionalDentist = dentistService.findById(id);
+        if (optionalDentist.isPresent()) {
+            dentistService.delete(id);
+            return "Se eliminó el odontólogo con id: " + id;
+        } else {
+            return "No se encontró el odontólogo con id: " + id;
+        }
 
    }
 }
