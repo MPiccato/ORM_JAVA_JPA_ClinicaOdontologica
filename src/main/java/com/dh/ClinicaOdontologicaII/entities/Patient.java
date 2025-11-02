@@ -25,8 +25,16 @@ public class Patient {
     @Column(name="admission_of_date", nullable = false)
     private LocalDate admissionOfDate;
 
-    //Constructor por defecto vacío
-    public Patient() {
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_address", referencedColumnName = "id")
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     //Getters and Setters
