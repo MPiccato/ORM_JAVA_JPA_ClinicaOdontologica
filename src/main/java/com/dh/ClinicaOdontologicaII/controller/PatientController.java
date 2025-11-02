@@ -69,4 +69,16 @@ public class PatientController {
 
     }
 
+    //Consultar paciente por apellido
+    @GetMapping("/lastname/{lastName}")
+    public Patient finByLastName(@PathVariable String lastName) {
+        Optional<Patient> patient = patientService.finByLastName(lastName);
+        if (patient.isPresent()) {
+            return patient.get();
+        } else {
+            return null;
+        }
+
+    }
+
 }

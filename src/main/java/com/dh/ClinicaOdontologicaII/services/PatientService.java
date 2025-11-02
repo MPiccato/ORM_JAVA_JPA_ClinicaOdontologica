@@ -33,4 +33,8 @@ public class PatientService {
     public List<Patient> findAll(){
         return repository.findAll();
     }
+
+    public Optional<Patient> finByLastName(String lastName) {
+        return repository.findByLastName(lastName);
+    }
 }
